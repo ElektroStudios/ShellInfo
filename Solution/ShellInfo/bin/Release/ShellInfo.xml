@@ -1,0 +1,237 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ShellInfo
+</name>
+</assembly>
+<members>
+<member name="T:ShellInfo.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:ShellInfo.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:ShellInfo.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:ShellInfo.Fields.Params">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Contains the command-line parameters for this application.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ShellInfo.Fields.Params.InfoKind">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ The "<c>/Info</c>" command-line parameter, 
+ which determines the info to retrieve from <see cref="F:ShellInfo.Fields.Params.ItemPath"/>.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ShellInfo.Fields.Params.SendToClipboard">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ The "<c>/Copy</c>" command-line parameter, 
+ which determines to send to clipboard or not the info retrieved by <see cref="F:ShellInfo.Fields.Params.InfoKind"/>.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ShellInfo.Fields.Params.ItemPath">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ The "<c>/Path</c>" command-line parameters, 
+ which determines the file or directory which to retrieve the type of info sepecified by <see cref="F:ShellInfo.Fields.Params.InfoKind"/>.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ShellInfo.Fields.Params.ParamCollection">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ A <see cref="T:Elektro.Application.Types.CommandlineParameterCollection"/> collection 
+ that contains all the declared command-line parameters in <see cref="T:ShellInfo.Fields.Params"/> module.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="T:ShellInfo.Enums.ItemType">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Specifies the type of a filesystem item.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ShellInfo.Enums.ItemType.File">
+ <summary>
+ The item is a file.
+ </summary>
+</member>
+<member name="F:ShellInfo.Enums.ItemType.Directory">
+ <summary>
+ The item is a directory.
+ </summary>
+</member>
+<member name="F:ShellInfo.Enums.ItemType.Unknown">
+ <summary>
+ Unknown item type.
+ </summary>
+</member>
+<member name="T:ShellInfo.Logic.ErrorHandling">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Contains the error-handling algorithms for this application.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ShellInfo.Logic.ErrorHandling.OnSyntaxError(Elektro.Application.Types.CommandlineParameter)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Called when exists the presence of a syntax error in one of the application parameters.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="cmd">
+ The application parameter.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ShellInfo.Logic.ErrorHandling.OnMissingParameterRequired(Elektro.Application.Types.CommandlineParameter)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Called when exists the presence of missing (required) application parameters.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="cmd">
+ The application parameter.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ShellInfo.Logic.ErrorHandling.OnMissingPath(System.String)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Called when the specified file or directory cannot be found.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="itemPath">
+ The file or directory path.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="T:ShellInfo.Logic.Help">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Contains the Help menu and algorithms for this application.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ShellInfo.Logic.Help.processName">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets the name of the current process.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="F:ShellInfo.Logic.Help.ColorizedHelp">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Contains help information such as author name, application syntax and example usages.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ShellInfo.Logic.Help.PrintHelp">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Prints the help.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="T:ShellInfo.Logic.Parsing">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Contains the parsing algorithms for the command-line parameters of this application.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ShellInfo.Logic.Parsing.ParseArguments(Elektro.Application.Types.CommandlineParameterCollection,System.Action{Elektro.Application.Types.CommandlineParameter},System.Action{Elektro.Application.Types.CommandlineParameter})">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Loop through all the command-line arguments of this application.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="cmds">
+ The commandline parameters.
+ </param>
+ 
+ <param name="callbackSyntaxError">
+ An encapsulated method that is invoked if a syntax error is found in one of the arguments.
+ </param>
+ 
+ <param name="callbackMissingRequired">
+ An encapsulated method that is invoked if a required parameter is missing in the arguments.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ShellInfo.Logic.Parsing.ParseArguments(Elektro.Application.Types.CommandlineParameterCollection,System.Collections.Generic.IEnumerable{System.String},System.Action{Elektro.Application.Types.CommandlineParameter},System.Action{Elektro.Application.Types.CommandlineParameter})">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Loop through all the command-line arguments of this application.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="cmds">
+ The commandline parameters.
+ </param>
+ 
+ <param name="args">
+ The collection of commandline arguments to examine.
+ </param>
+ 
+ <param name="callbackSyntaxError">
+ An encapsulated method that is invoked if a syntax error is found in one of the arguments.
+ </param>
+ 
+ <param name="callbackMissingRequired">
+ An encapsulated method that is invoked if a required parameter is missing in the arguments.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ShellInfo.Logic.Parsing.GetInfo(System.String,System.Boolean,System.String)">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ Gets the information from the specified file or directory.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+ <param name="info">
+ The kind of information to retrieve.
+ </param>
+ 
+ <param name="sendToClipboard">
+ If set to <see langword="True"/>, send the obtained info to Windows Clipboard.
+ </param>
+ 
+ <param name="itemPath">
+ The file or directory path.
+ </param>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="T:ShellInfo.Logic.Program">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ The main application module.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+<member name="M:ShellInfo.Logic.Program.Main">
+ ----------------------------------------------------------------------------------------------------
+ <summary>
+ The main entry point.
+ </summary>
+ ----------------------------------------------------------------------------------------------------
+</member>
+</members>
+</doc>
